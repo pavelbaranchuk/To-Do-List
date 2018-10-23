@@ -34,7 +34,7 @@ export class FormComponent {
     return `
     <form class="list__form">
       <div>
-        <textarea class="list__textarea" rows="4" cols="60"></textarea>
+        <textarea class="list__textarea" rows="4" cols="60" required></textarea>
       </div>
       <div>
         <button>ADD</button>
