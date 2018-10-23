@@ -5,7 +5,7 @@ export class ListComponent {
   }
 
   querySelectors() {
-    debugger;
+    // debugger;
     this.listItem = this.mountPoint.querySelector(".list__item");
     this.arrayList.forEach(item => {
       this.listItem.innerHTML += `<li>${item}</li>`;

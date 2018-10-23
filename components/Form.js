@@ -1,8 +1,9 @@
 import { ListComponent } from "./List";
 
 export class FormComponent {
-  constructor(mountPoint) {
+  constructor(mountPoint, arrayList) {
     this.mountPoint = mountPoint;
+    this.arrayList = arrayList;
   }
 
   querySelectors() {
@@ -17,7 +18,8 @@ export class FormComponent {
 
   handleSubmit() {
     const value = this.formField.value;
-    const item = new ListComponent(this.outputField, { text: value });
+    this.arrayList.push(value);
+    const item = new ListComponent(this.outputField, this.arrayList);
     item.mount();
   }
 
