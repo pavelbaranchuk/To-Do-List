@@ -1,15 +1,12 @@
-import { ListComponent } from "./List";
-
 export class FormComponent {
-  constructor(mountPoint, arrayList) {
+  constructor(mountPoint, passBack) {
     this.mountPoint = mountPoint;
-    this.arrayList = arrayList;
+    this.passBack = passBack;
   }
 
   querySelectors() {
     this.formField = this.mountPoint.querySelector(".list__form");
     this.textarea = this.mountPoint.querySelector(".list__textarea");
-    this.outputField = this.mountPoint.querySelector(".list__output");
   }
 
   addEventListeners() {
@@ -19,9 +16,7 @@ export class FormComponent {
   handleSubmit(e) {
     e.preventDefault();
     const value = this.textarea.value;
-    this.arrayList.push(value);
-    const item = new ListComponent(this.outputField, this.arrayList);
-    item.mount();
+    this.passBack(value);
   }
 
   mount() {
@@ -40,7 +35,6 @@ export class FormComponent {
         <button>ADD</button>
       </div>
     </form>
-    <div class="list__output"></div>
     `;
   }
 }
