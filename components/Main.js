@@ -14,8 +14,6 @@ export class MainComponent {
     let arrayList = [];
     this.form = new FormComponent(this.formPoint, arrayList);
     this.form.mount();
-    // this.listItems = new ListComponent(this.itemsPoint);
-    // this.listItems.mount();
   }
 
   mount() {

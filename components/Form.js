@@ -7,17 +7,18 @@ export class FormComponent {
   }
 
   querySelectors() {
-    this.formField = this.mountPoint.querySelector(".list__textarea");
-    this.submitButton = this.mountPoint.querySelector(".list__button");
+    this.formField = this.mountPoint.querySelector(".list__form");
+    this.textarea = this.mountPoint.querySelector(".list__textarea");
     this.outputField = this.mountPoint.querySelector(".list__output");
   }
 
   addEventListeners() {
-    this.submitButton.addEventListener("click", this.handleSubmit.bind(this));
+    this.formField.addEventListener("submit", this.handleSubmit.bind(this));
   }
 
-  handleSubmit() {
-    const value = this.formField.value;
+  handleSubmit(e) {
+    e.preventDefault();
+    const value = this.textarea.value;
     this.arrayList.push(value);
     const item = new ListComponent(this.outputField, this.arrayList);
     item.mount();
@@ -31,14 +32,15 @@ export class FormComponent {
 
   render() {
     return `
-    <div>
-      <textarea class="list__textarea" rows="4" cols="60"></textarea>
-    </div>
-    <div>
-      <button class="list__button">ADD</button>
-    </div>
-    <div class="list__output">
-    </div>
+    <form class="list__form">
+      <div>
+        <textarea class="list__textarea" rows="4" cols="60"></textarea>
+      </div>
+      <div>
+        <button>ADD</button>
+      </div>
+    </form>
+    <div class="list__output"></div>
     `;
   }
 }
