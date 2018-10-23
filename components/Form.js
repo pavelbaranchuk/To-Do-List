@@ -35,8 +35,7 @@ export class FormComponent {
     <div>
       <button class="list__button">ADD</button>
     </div>
-    <div>
-      <ul class="list__output"></ul>
+    <div class="list__output">
     </div>
     `;
   }

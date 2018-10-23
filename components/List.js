@@ -1,13 +1,15 @@
-import _ from "lodash";
-
 export class ListComponent {
-  constructor(mountPoint, props = {}) {
+  constructor(mountPoint, arrayList) {
     this.mountPoint = mountPoint;
-    this.props = props;
+    this.arrayList = arrayList;
   }
 
   querySelectors() {
+    debugger;
     this.listItem = this.mountPoint.querySelector(".list__item");
+    this.arrayList.forEach(item => {
+      this.listItem.innerHTML += `<li>${item}</li>`;
+    });
   }
 
   mount() {
@@ -17,7 +19,7 @@ export class ListComponent {
 
   render() {
     return `
-    <li class="list__item">${this.props.text}</li>
+    <ul class="list__item"></ul>
     `;
   }
 }
